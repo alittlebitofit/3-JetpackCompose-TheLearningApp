@@ -5,18 +5,13 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawingPadding
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -28,13 +23,15 @@ import com.example.thelearningapp.ui.theme.TheLearningAppTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent {
             TheLearningAppTheme {
                 Scaffold(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier.fillMaxSize()
                 ) { innerPadding ->
                     Greeting(
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier
+                            .padding(innerPadding)
                     )
                 }
             }
@@ -51,18 +48,18 @@ fun Greeting(modifier: Modifier = Modifier) {
         )
         Text(
             text = stringResource(R.string.jetpack_compose_tutorial),
-            modifier = modifier.padding(16.dp),
+            modifier = Modifier.padding(16.dp),
             fontSize = 24.sp,
         )
         Text(
             text = stringResource(R.string.jetpack_compose_intro),
-            modifier = modifier.padding(horizontal = 16.dp),
+            modifier = Modifier.padding(horizontal = 16.dp),
             textAlign = TextAlign.Justify,
 
             )
         Text(
             text = stringResource(R.string.jetpack_compose_second_paragraph),
-            modifier = modifier.padding(16.dp),
+            modifier = Modifier.padding(16.dp),
             textAlign = TextAlign.Justify
         )
     }
